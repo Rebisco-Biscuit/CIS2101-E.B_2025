@@ -19,15 +19,17 @@ int main() {
     L = initialize(L);
     L.elem[0] = 1;
     L.elem[1] = 2;
-    L.elem[2] = 3;
-    L.elem[3] = 4;
+    L.elem[2] = 4;
+    L.elem[3] = 5;
     L.count = 4;
     
-    L = insertPos(L, 5, 2);
-    L = deletePos(L, 2);
+    //L = insertPos(L, 5, 2);
+    //L = deletePos(L, 2);
     
     printf("%d\n", locate(L, 5));
     printf("%d", locate(L, 3));
+    
+   L = insertSorted(L, 3);
 
     return 0;
 }
@@ -81,9 +83,19 @@ int locate(List L, int data) {
 }
 
 List insertSorted(List L, int data) {
-    if(count != MAX) {
-        for(int i=0; i<count; i++) {
-            if(data)
+    if (L.count != MAX) {
+        int pos = 0;
+
+        while (pos < L.count && L.elem[pos] < data) {
+            pos++;
         }
+
+        for (int i=L.count-1; i>=pos; i--) {
+            L.elem[i+1] = L.elem[i];
+        }
+
+        L.elem[pos] = data;
+        L.count++;
     }
+    return L;
 }
