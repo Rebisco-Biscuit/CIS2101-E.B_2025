@@ -15,6 +15,8 @@ int locate(List *L, int data);
 int retrieve(List *L, int position);
 void display(List *L);
 void insertSorted(List *L, int data);
+void resize(List *L);
+void makeNULL(List *L);
 
 int main() {
 
@@ -30,8 +32,26 @@ int main() {
     printf("%d\n", locate(&L, 2));
     printf("%d", retrieve(&L, 2));
     insertSorted(&L, 3);
+    
+    resize(&L);
+    makeNULL(&L);
 
     return 0;
+}
+
+void makeNULL(List *L) {
+  free(L->elemPtr);
+}
+
+void resize(List *L) {
+  int old = L->max;
+  int *temp = realloc(L->elemPtr, (L->max*2)*sizeof(int)); 
+  if(temp != NULL) {
+    L->elemPtr = temp;
+    L->max *=2;
+    
+    for(int i=old; i<L->max; i++) { L->elemPtr[i] = -1; }
+  }
 }
 
 void insertSorted(List *L, int data) {
@@ -90,5 +110,3 @@ void deletePos(List *L, int position) {
         }
     }
 }
-
-//needs MakeNull & Resize functions
