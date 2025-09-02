@@ -16,6 +16,9 @@ void insertFirst(List *list, int data);
 void insertLast(List *list, int data);
 void insertPos(List *list, int data, int index);
 void deleteStart(List *list);
+void deleteLast(List *lsit);
+void printList(List *list);
+void deletePos(List *list, int index);
 
 int main() {
     List *L = initialize();
@@ -23,10 +26,29 @@ int main() {
     insertFirst(L, 1);
     insertLast(L, 3);
     insertPos(L, 4, 3);
-    insertPos(L, 5, 1);
-    deleteStart(L);
+    deletePos(L, 1);
+    // insertPos(L, 5, 1);
+    // deleteStart(L);
+    //deleteLast(L);
     
     return 0;
+}
+
+void deletePos(List *list, int index) {
+  if(index == 0) {
+    deleteStart(list);
+  } else if (index == list->count) {
+    deleteLast(list);
+  } else {
+    Node *current = list->head;
+    for(int i=0; i<index-1; i++) {
+      current = current->next;
+    }
+    Node *temp = current->next;
+    current->next = temp->next;
+    free(temp);
+    
+  }
 }
 
 List* initialize()  {
@@ -37,6 +59,20 @@ List* initialize()  {
     L->head = NULL;
     L->count = 0;
     return L;
+}
+
+void deleteLast(List *list) {
+  if(list->count == 1) {
+    deleteStart(list);
+  } else {
+    Node *current = list->head;
+    for(int i=0; i<list->count-2; i++) {
+      current = current->next;
+    }
+    free(current->next);
+    current->next = NULL;
+    list->count--;
+  }
 }
 
 void deleteStart(List *list) {
