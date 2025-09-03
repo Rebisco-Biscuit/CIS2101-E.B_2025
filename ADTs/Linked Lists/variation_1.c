@@ -33,18 +33,18 @@ int main() {
     insertFirst(L, 2);
     insertFirst(L, 1);
     insertLast(L, 3);
-    empty(L);
-    // insertPos(L, 4, 3);
-    //deletePos(L, 2);
+    // empty(L);
+    insertPos(L, 4, 3);
+    deletePos(L, 2);
     // printf("%d\n", retrieve(L, 3));
     // printf("%d\n", locate(L, 1));
     // printf("%d\n", locate(L, 2));
     // printf("%d\n", locate(L, 3));   
-    // printList(L);
     
     // insertPos(L, 5, 1);
     // deleteStart(L);
-    //deleteLast(L);
+    // deleteLast(L);
+    printList(L);
     
     return 0;
 }
@@ -64,15 +64,14 @@ int locate(List *list, int data) {
 }
 
 int retrieve(List *list, int index) {
-  if(index < list->count-1) {
+  if(index <= list->count-1) {
     index -= 1;
     Node *current = list->head;
-    for(int i=0; i<=index-1; i++) {
+    for(int i=0; i<=index; i++) {
       current = current->next;
     }
     return current->data;
   }
-  return -1;
 }
 
 void printList(List *list) {
