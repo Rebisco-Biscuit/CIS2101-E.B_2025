@@ -5,6 +5,14 @@
 
 /* circular array - kwewe v1 */
 
+/*
+
+CIRCULAR ARRAY W/ COUNT
+CIRCULAR ARRAY W/ COUNT
+CIRCULAR ARRAY W/ COUNT
+
+*/
+
 typedef struct {
     int items[MAX];
     int count;

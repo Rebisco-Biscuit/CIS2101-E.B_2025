@@ -5,6 +5,14 @@
 
 /* circular array - kwewe v2 */
 
+/*
+
+CIRCULAR ARRAY W/O COUNT
+CIRCULAR ARRAY W/O COUNT
+CIRCULAR ARRAY W/O COUNT
+
+*/
+
 typedef struct {
     int items[MAX];
     int front;

@@ -1,6 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*
+
+ll ACCESSED BY POINTER
+ll ACCESSED BY POINTER
+ll ACCESSED BY POINTER
+
+*/
+
 typedef struct node {
     int data;
     struct node *next;

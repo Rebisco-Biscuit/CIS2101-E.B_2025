@@ -2,6 +2,14 @@
 #include <stdio.h>
 #define LENGTH 10
 
+/*
+
+DYNAMIC ARRAY ACCESSED BY VALUE
+DYNAMIC ARRAY ACCESSED BY VALUE
+DYNAMIC ARRAY ACCESSED BY VALUE
+
+*/
+
 typedef struct {
     int *elemPtr;
     int count;

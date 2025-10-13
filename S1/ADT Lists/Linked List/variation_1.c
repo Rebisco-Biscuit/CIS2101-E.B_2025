@@ -3,6 +3,14 @@
 
 /* trying out for-loops for traversal instead of while */
 
+/*
+
+ll ACCESSED BY VALUE
+ll ACCESSED BY VALUE
+ll ACCESSED BY VALUE
+
+*/
+
 typedef struct node {
     int data;
     struct node *next;

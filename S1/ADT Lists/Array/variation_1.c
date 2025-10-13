@@ -1,6 +1,14 @@
 #include <stdio.h>
 #define MAX 10
 
+/*
+
+STATIC ARRAY ACCESSED BY VALUE
+STATIC ARRAY ACCESSED BY VALUE
+STATIC ARRAY ACCESSED BY VALUE
+
+*/
+
 typedef struct {
     int elem[MAX];
     int count;

@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #define LENGTH 10
 
+/*
+
+DYNAMIC ARRAY ACCESSED BY POINTER
+DYNAMIC ARRAY ACCESSED BY POINTER
+DYNAMIC ARRAY ACCESSED BY POINTER
+
+*/
+
 typedef struct  {
     int *elemPtr;
     int count;
