@@ -1,6 +1,6 @@
 ### EXERCISES
 
 - [x] Warehouse Inventory System
-- [ ] Pharmacy Queueing System
-- [ ] Knowledge Base
+- [x] Pharmacy Queueing System
+- [x] Knowledge Base (??? 3/5 HAHAHA)
 - [x] Airport Code Lookup
