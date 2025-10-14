@@ -9,12 +9,6 @@ COMPUTER WORD/BITMASK
 
 */
 
-#include <stdio.h>
-#include <math.h>
-#include <stdbool.h>
-
-// computer word
-
 void initialize(unsigned char *set);
 void insert(unsigned char *set, int element);
 void delete(unsigned char *set, int element);
@@ -67,10 +61,11 @@ int main() {
   printf("\nset B: "); display(B);
   printf("\nintersection: "); display(intersection(A, B)); 
   
-  printf("\n\n== set difference of A and B (kung unsay wala sa B) == ");
+  printf("\n\n== set difference of A and B (kung unsay wala sa B/A) == ");
   printf("\nset A: "); display(A);
   printf("\nset B: "); display(B);
   printf("\ndifference (A-B): "); display(difference(A, B));   
+  printf("\ndifference (B-A): "); display(difference(B, A));    
   
   return 0;
 }
@@ -97,13 +92,16 @@ bool find(unsigned char set, int element) {
 }
 
 void display(unsigned char set) {
-  int bits = sizeof(unsigned char)*8;
-  unsigned int mask = 1 << (bits-1);
-  
-  while(mask != 0) {
-    printf("%d", (set&mask)? 1:0);
-    mask >>= 1;
-  }
+    bool first = true;
+    printf("{");
+    for(int i=0; i<8; i++) {
+        if(set & (1<<i)) {
+            if(!first) printf(", ");
+            printf("%d", i);
+            first = false;
+        }
+    }
+    printf("}");  
 }
 
 unsigned char unionSet(unsigned char A, unsigned char B) {
