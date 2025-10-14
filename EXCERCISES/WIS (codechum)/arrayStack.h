@@ -3,7 +3,7 @@
 #include "types.h"
 
 void displayStack(Stack *s) {
-    if(isEmpty(s) == 1) {
+    if(isEmpty(s)) {
         printf("\nStack is empty.");
     } else {
         for(int i=s->top; i>=0; i--) {
@@ -21,24 +21,24 @@ bool findContainer(Stack *s, int num) {
     int tempStack[MAX];
     int tempTop = -1;
 
-    while(!isEmpty(s)) {
+    while (!isEmpty(s)) {
         int value = pop(s);
-        if(value == num) {
+        if (value == num) {
             isFound = true;
         }
         tempStack[++tempTop] = value;
     }
-    
-    while(tempTop >= 0) {
-        push(s, tempStack[--tempTop]);
-    }
-    
-    return isFound;
 
+    while (tempTop >= 0) {
+        push(s, tempStack[tempTop--]);
+    }
+
+    return isFound;
 }
 
+
 int pop(Stack *s) {
-    if(isEmpty(s) == 1) {
+    if(isEmpty(s)) {
         return -1;
     } else {
         return s->items[s->top--];
@@ -46,7 +46,7 @@ int pop(Stack *s) {
 }
 
 void push(Stack *s, int value) {
-    if(isFull(s) == 1) {
+    if(isFull(s)) {
         return;
     } else {
         s->items[++s->top] = value;
@@ -55,10 +55,10 @@ void push(Stack *s, int value) {
 }
 
 bool isFull(Stack *s) {
-    return (s->top == MAX-1)? 1 : 0;
+    return (s->top == MAX-1);
 }
 bool isEmpty(Stack *s) {
-    return (s->top == -1)? 1 : 0;
+    return (s->top == -1);
 }
 
 void initializeStack(Stack *s) {

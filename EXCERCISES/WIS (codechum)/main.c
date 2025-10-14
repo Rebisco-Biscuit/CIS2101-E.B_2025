@@ -30,7 +30,7 @@ int main() {
                 printf("Enter container ID to push: ");
                 scanf("%d", &value);
                 if(fullCtr < 3) {
-                    if(isFull(&stack[fullCtr]) == 1) {
+                    if(isFull(&stack[fullCtr])) {
                         ++fullCtr;
                     }
                         push(&stack[fullCtr], value);
@@ -51,23 +51,30 @@ int main() {
                     printf("Container %d popped successfully.\n", pop(&stack[fullCtr]));
                 }
                 break;
+                
             case 3:
-            
-            int check, fCtr;
-            printf("Enter container ID to check: ");
-            scanf("%d", &check);
-            fCtr = fullCtr;
-            
-            while(fCtr >= 0) {
-                bool isFound = findContainer(&stack[fullCtr], fCtr);
-                if(isFound == 1) {
-                    printf("Container %d exists in a stack.");
-                } else {
+                int check;
+                printf("Enter container ID to check: ");
+                scanf("%d", &check);
+                
+                int fCtr = fullCtr;
+                bool found = false;
+                
+                while (fCtr >= 0) {
+                    bool isFound = findContainer(&stack[fCtr], check);
+                    if (isFound) {
+                        printf("Container %d exists in a stack.\n", check);
+                        found = true;
+                        break;
+                    }
                     fCtr--;
                 }
-            }
             
-            
+                if (!found) {
+                    printf("Container %d does not exist in any stack.\n", check);
+                }
+                break;
+
             case 4:
                 for(int i=0; i<3; i++) {
                     printf("\n--- Stack %d ---", i+1);
